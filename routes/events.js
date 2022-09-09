@@ -2,8 +2,6 @@ import express, { response } from "express";
 import { client } from "../index.js"
 import { ObjectId } from 'mongodb';
 const router = express.Router();
-
-
 //get all events
 router.get("/", async function (request, response) {
     const skip = request.query.skip ? Number(request.query.skip) : 0;
