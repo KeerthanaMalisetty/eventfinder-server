@@ -13,17 +13,13 @@ import { profileRouter } from "./routes/profile.js";
 import { adminRouter } from "./routes/admin.js";
 import cors from 'cors';
 const app = express();
-const PORT = process.env.PORT || 5000;
-// const cors = require('cors');
-// app.use(cors());
-// const cors = require("cors");
+const PORT = process.env.PORT
+
 dotenv.config();
 app.use(cors({ origin: "*", }));
-app.use(express.json());
 
-// app.use(express.json({ limit: "50mb" }))
 //middleware
-
+app.use(express.json({ limit: "50mb" }))
 
 app.use(bodyParser.json())
 
@@ -147,18 +143,7 @@ app.post("/sendmail", async function (request, response) {
 })
 
 
-
-
-
-// //
-// app.get("/myevents/:id", async function (request, response) {
-//   const { id } = (request.params);
-//   const bookings = await client.db("Events").collection("events").find({ username: id }).toArray()
-//   response.send(bookings)
-//   console.log(bookings)
-// })
-
-//user Routes
+//Routes
 app.use("/", userRouter);
 app.use("/events", eventsRouter);
 app.use("/profile", profileRouter)
