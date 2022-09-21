@@ -14,7 +14,6 @@ import { adminRouter } from "./routes/admin.js";
 import cors from 'cors';
 const app = express();
 const PORT = process.env.PORT
-
 dotenv.config();
 app.use(cors());
 
