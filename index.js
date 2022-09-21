@@ -16,7 +16,7 @@ const app = express();
 const PORT = process.env.PORT
 
 dotenv.config();
-app.use(cors({ origin: "*", }));
+app.use(cors());
 
 //middleware
 app.use(express.json({ limit: "50mb" }))

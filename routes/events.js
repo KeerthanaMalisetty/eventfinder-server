@@ -8,7 +8,7 @@ router.get("/", async function (request, response) {
     const DEFAULT_LIMIT = 12;
     // const events = await client.db("Events").collection("events").find({}).sort({ _id: -1 }).toArray()
     const events = await client.db("Events").collection("events").find({}).sort({ _id: -1 }).skip(skip).limit(DEFAULT_LIMIT).toArray()
-    events[0] ? response.send(events) : response.send({ msg: "No more events" })
+    events[0] ? response.send(events) : response.send({ msg: "No more events" });
 })
 
 //get event by id
