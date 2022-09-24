@@ -2,6 +2,9 @@ import express, { response } from "express";
 import { client } from "../index.js"
 import { ObjectId } from 'mongodb';
 const router = express.Router();
+
+
+
 //get all events
 router.get("/", async function (request, response) {
     const skip = request.query.skip ? Number(request.query.skip) : 0;
@@ -38,7 +41,7 @@ router.get("/billing/:id", async function (request, response) {
 //get events by location
 router.get('/:place', async function (request, response) {
     const { place } = (request.params);
-    const events = await client.db("Events").collection("events").find({ city: place }).toArray()
+    const events = await client.db("Events").collection("events").find({ city: place }).toArray();
     response.send(events)
 })
 

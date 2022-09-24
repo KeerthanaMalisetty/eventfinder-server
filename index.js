@@ -12,6 +12,7 @@ import { eventsRouter } from "./routes/events.js";
 import { profileRouter } from "./routes/profile.js";
 import { adminRouter } from "./routes/admin.js";
 import cors from 'cors';
+
 const app = express();
 const PORT = process.env.PORT
 dotenv.config();
@@ -29,9 +30,6 @@ app.get('/', function (request, response) {
 // const MONGO_URL = 'mongodb://127.0.0.1';
 const MONGO_URL = process.env.Mongo_Url;
 
-
-
-//  const app= express();
 
 async function createConnection() {
   const client = new MongoClient(MONGO_URL);
