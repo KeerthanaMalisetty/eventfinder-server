@@ -11,7 +11,7 @@ import { userRouter } from './routes/user.js'
 import { eventsRouter } from "./routes/events.js";
 import { profileRouter } from "./routes/profile.js";
 import { adminRouter } from "./routes/admin.js";
-import cors from 'cors';
+import cors from "cors";
 
 const app = express();
 const PORT = process.env.PORT
