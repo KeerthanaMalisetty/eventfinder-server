@@ -16,6 +16,7 @@ import cors from "cors";
 const app = express();
 const PORT = process.env.PORT
 dotenv.config();
+
 app.use(cors());
 
 //middleware
