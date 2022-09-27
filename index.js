@@ -30,13 +30,13 @@ app.get('/', function (request, response) {
   response.send('Hello World')
 })
 
-app.use(cors(
-  {
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
-  }
-));
+app.use(cors());
+// {
+//   origin: "*",
+//   methods: ["GET", "POST", "PUT", "DELETE"],
+//   credentials: true
+// }
+// ));
 
 // const MONGO_URL = 'mongodb://127.0.0.1';
 const MONGO_URL = process.env.Mongo_Url;

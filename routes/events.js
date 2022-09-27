@@ -40,8 +40,9 @@ router.get("/billing/:id", async function (request, response) {
 
 //get events by location
 router.get('/:place', async function (request, response) {
-    const { place } = (request.params);
+    const { place } = request.params;
     const events = await client.db("Events").collection("events").find({ city: place }).toArray();
+    console.log(events)
     response.send(events)
 })
 
