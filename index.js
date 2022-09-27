@@ -17,19 +17,24 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 dotenv.config();
 
-app.use(cors({
-  origin: "*",
-  credentials: true
-}));
+
 
 //middleware
 app.use(express.json({ limit: "50mb" }))
+
+
 
 app.use(bodyParser.json())
 
 app.get('/', function (request, response) {
   response.send('Hello World')
 })
+
+app.use(cors(
+  {
+    origin: "*"
+  }
+));
 
 // const MONGO_URL = 'mongodb://127.0.0.1';
 const MONGO_URL = process.env.Mongo_Url;
