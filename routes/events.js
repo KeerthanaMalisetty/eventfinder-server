@@ -16,9 +16,12 @@ router.get("/", async function (request, response) {
 
 //get event by id
 router.get("/:id", async function (request, response) {
-    const { id } = request.params
+    // const { id } = request.params
+    var reqId = request.params.id
+    var id = reqId.toString();
+    console.log(typeof (id))
     const event = await client.db("Events").collection("events").findOne({ _id: ObjectId(id) })
-    console.log(event)
+    // console.log(event)
     response.send(event);
 })
 
@@ -46,6 +49,20 @@ router.get('/:place', async function (request, response) {
     response.send(events)
 })
 
+
+router.post('/city', async (req, res) => {
+    const { city } = req.body;
+    // console.log(req.body);
+    if (city === "Location") {
+        const events = await client.db("Events").collection("events").find({}).sort({ _id: -1 }).toArray();
+        res.send(events)
+    } else {
+        const events = await client.db("Events").collection("events").find({ city: city }).toArray();
+        res.send(events)
+    }
+
+
+})
 
 
 export const eventsRouter = router;
