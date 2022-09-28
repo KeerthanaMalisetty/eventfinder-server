@@ -57,7 +57,7 @@ router.post('/city', async (req, res) => {
         const events = await client.db("Events").collection("events").find({}).sort({ _id: -1 }).toArray();
         res.send(events)
     } else {
-        const events = await client.db("Events").collection("events").find({ city: city }).toArray();
+        const events = await client.db("Events").collection("events").find({ city: city }).sort({ _id: -1 }).toArray();
         res.send(events)
     }
 
